@@ -1,4 +1,5 @@
 import { supabase } from "@/libs/supabase";
+import { unstable_noStore } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import puppeteer from "puppeteer-core";
 
@@ -20,12 +21,10 @@ interface ScrapData {
   L5: string;
 }
 
-// export const dynamic = "force-dynamic";
-
 export const dynamic = "force-dynamic";
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
-  // unstable_noStore();
+  unstable_noStore();
   try {
     const url =
       "https://hosted.dcd.shared.geniussports.com/LMBA/en/competition/36602/standings?phaseName=Division%20IV&";
@@ -132,7 +131,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
 
     await browser.close();
 
-    return NextResponse.json({ ok: true });
+    return new Response(JSON.stringify(supabaseData), { status: 200 });
   } catch (error: any) {
     console.error("Scraping failed:", error.message);
     return new Response(

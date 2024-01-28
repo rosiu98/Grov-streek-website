@@ -3,7 +3,7 @@ import { unstable_noStore } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import puppeteer from "puppeteer-core";
 
-interface ScrapData {
+export interface ScrapData {
   imageLogo: string;
   Position: string;
   teamName: string;

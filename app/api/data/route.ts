@@ -1,5 +1,4 @@
 import { supabase } from "@/libs/supabase";
-import { unstable_noStore } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import puppeteer from "puppeteer-core";
 
@@ -21,7 +20,7 @@ interface ScrapData {
   L5: string;
 }
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
   // unstable_noStore();
@@ -131,7 +130,7 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
 
     await browser.close();
 
-    return new Response(JSON.stringify(supabaseData), { status: 200 });
+    return NextResponse.json({ ok: true });
   } catch (error: any) {
     console.error("Scraping failed:", error.message);
     return new Response(

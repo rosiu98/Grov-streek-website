@@ -23,7 +23,7 @@ interface ScrapData {
 
 export const dynamic = "force-dynamic";
 
-export const POST = async (req: NextRequest, res: NextResponse) => {
+export const GET = async (req: NextRequest, res: NextResponse) => {
   unstable_noStore();
   try {
     const url =

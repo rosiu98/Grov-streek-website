@@ -1,10 +1,6 @@
 import { supabase } from "@/libs/supabase";
-import type { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
 import puppeteer from "puppeteer-core";
-
-type Json = {
-  message: string;
-};
 
 interface ScrapData {
   imageLogo: string;
@@ -24,10 +20,7 @@ interface ScrapData {
   L5: string;
 }
 
-export const GET = async (
-  req: NextApiRequest,
-  res: NextApiResponse<Json | Buffer>
-) => {
+export const GET = async (req: NextRequest, res: NextResponse) => {
   try {
     const url =
       "https://hosted.dcd.shared.geniussports.com/LMBA/en/competition/36602/standings?phaseName=Division%20IV&";

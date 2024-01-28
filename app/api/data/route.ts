@@ -1,4 +1,5 @@
 import { supabase } from "@/libs/supabase";
+import { unstable_noStore } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import puppeteer from "puppeteer-core";
 
@@ -21,6 +22,7 @@ interface ScrapData {
 }
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
+  unstable_noStore();
   try {
     const url =
       "https://hosted.dcd.shared.geniussports.com/LMBA/en/competition/36602/standings?phaseName=Division%20IV&";

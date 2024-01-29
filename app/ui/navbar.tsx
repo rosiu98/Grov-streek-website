@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -12,11 +14,51 @@ import {
 import GroveStreetLogo from "@/public/grove-street-logo.svg";
 import { Button } from "./button";
 import NavbarSvg from "./navbarSvg";
+import { useEffect, useRef, useState } from "react";
+import clsx from "clsx";
 
 const Navbar = () => {
+  const navbarRef = useRef<HTMLDivElement | null>(null);
+  const [isNavbarFixed, setIsNavbarFixed] = useState(false);
+
+  useEffect(() => {
+    const headerElement = document.querySelector("header"); // Change the selector as needed
+
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      const [entry] = entries;
+      const shouldFixNavbar = !entry.isIntersecting;
+
+      if (shouldFixNavbar && !isNavbarFixed) {
+        setIsNavbarFixed(true);
+      } else if (!shouldFixNavbar && isNavbarFixed) {
+        setIsNavbarFixed(false);
+      }
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0,
+    });
+
+    if (headerElement) {
+      observer.observe(headerElement);
+    }
+
+    return () => {
+      if (headerElement) {
+        observer.unobserve(headerElement);
+      }
+    };
+  }, [isNavbarFixed]);
+
   return (
-    <nav className="sticky top-0 w-full max-w-full  bg-black bg-opacity-45 text-white">
-      <div className="flex flex-row items-center justify-end max-w-app m-auto relative py-8">
+    <nav
+      ref={navbarRef}
+      className={clsx(
+        `relative z-30 top-0 w-full max-w-full bg-black bg-opacity-45 text-white`,
+        isNavbarFixed && "!fixed navbar-enter"
+      )}
+    >
+      <div className="navbar-container flex flex-row items-center justify-end max-w-app m-auto relative py-8">
         <div>
           <Image
             src={GroveStreetLogo.src}

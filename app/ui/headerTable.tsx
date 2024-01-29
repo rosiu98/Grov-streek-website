@@ -1,5 +1,6 @@
 import { supabase } from "@/libs/supabase";
 import clsx from "clsx";
+import { revalidatePath } from "next/cache";
 import Image from "next/image";
 import React from "react";
 
@@ -29,6 +30,7 @@ const HeaderTable = async () => {
     .select("*")
     .order("position", { ascending: true })
     .returns<TableData[]>();
+  //   revalidatePath("/");
 
   if (error || !data) return null;
 

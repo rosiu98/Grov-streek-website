@@ -75,6 +75,24 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f201d;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1d2018;
+}
+
 .max-w-app {
   max-width: 1620px;
   width: 100%;
@@ -136,4 +154,46 @@
 
 .shadow-box {
   box-shadow: 0 0 #0000, 0 0 #0000, 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+main:after,
+main:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-image: url("../public/bg_left.png");
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  z-index: -1;
+}
+
+main:after {
+  right: 0;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+main {
+  /* background: rgba(23, 40, 40, 0.71); */
+  border-top: solid 15px #000;
+  background-color: rgb(22 34 34 / 85%);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar-enter {
+  animation: fadeIn 0.5s ease-out;
 }

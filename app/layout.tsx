@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${redHatFont.className} bg-black`}>{children}</body>
+      <body className={redHatFont.className}>{children}</body>
     </html>
   );
 }

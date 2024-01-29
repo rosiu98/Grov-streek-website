@@ -1,4 +1,3 @@
-import React from "react";
 import { PostNoBills } from "./fonts";
 import { Button } from "./button";
 
@@ -16,9 +15,9 @@ const HeaderTitle = () => {
         GROVE STREET
       </h1>
       <p className="text-xl font-medium max-w-[550px] mb-10">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend
-        est id risus semper tincidunt. Nunc euismod leo congue, bibendum lorem
-        eget, vehicula eros.
+        Znajdziesz tutaj aktualności, relacje z meczów, galerie zdjęć oraz wiele
+        innych informacji dotyczących naszego zespołu. Dołącz do naszej
+        społeczności i śledź razem z nami naszą koszykarską przygodę!
       </p>
       <div>
         <Button className="text-2xl px-7 py-5" href="/">

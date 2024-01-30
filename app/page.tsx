@@ -4,6 +4,7 @@ import HeaderTable from "./ui/headerTable";
 import HeaderTitle from "./ui/headerTitle";
 import Main from "./ui/main";
 import Navbar from "./ui/navbar";
+import News from "./ui/news";
 
 export const revalidate = 900;
 
@@ -17,7 +18,9 @@ export default function Home() {
           <HeaderTable />
         </HeaderColumns>
       </Header>
-      <Main></Main>
+      <Main>
+        <News />
+      </Main>
     </>
   );
 }

@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const News = () => {
   return (
-    <section className="pt-[100px] lg:pt-[190px] pb-10">
+    <section className="pt-[190px] pb-10">
       <div className="max-w-app">
         <div className="mb-12">
           <p className="text-white text-3xl font-extrabold mb-7">AKTUALNOŚCI</p>

@@ -81,7 +81,7 @@ const Navbar = () => {
           </div>
           <div className="lg:hidden block">
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+              <DropdownMenuTrigger>
                 <NavbarSvg />
               </DropdownMenuTrigger>
               <DropdownMenuContent>

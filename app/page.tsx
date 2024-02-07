@@ -1,3 +1,4 @@
+import { getGoogleSheetsData } from "@/libs/gsheets";
 import Header from "./ui/header";
 import HeaderColumns from "./ui/headerColumns";
 import HeaderTable from "./ui/headerTable";
@@ -5,10 +6,12 @@ import HeaderTitle from "./ui/headerTitle";
 import Main from "./ui/main";
 import Navbar from "./ui/navbar";
 import News from "./ui/news";
+import FacebookPosts from "./ui/facebookPosts";
+import Ambitions from "./ui/ambitions";
 
 export const revalidate = 900;
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <Header>
@@ -20,6 +23,8 @@ export default function Home() {
       </Header>
       <Main>
         <News />
+        <FacebookPosts />
+        <Ambitions />
       </Main>
     </>
   );

@@ -15,7 +15,7 @@ const News = () => {
         </div>
         <div className="grid grid-cols-1 h-auto lg:h-[480] xl:grid-cols-[auto_1fr] text-left gap-7">
           <Link className="articleLink" href="/">
-            <div className="relative">
+            <div className="relative h-full">
               <div className="absolute z-20 top-0 pt-5 pl-5 md:pl-10">
                 <div className="flex items-center justify-center gap-1 bg-black p-1 rounded-md">
                   <span>
@@ -30,7 +30,7 @@ const News = () => {
                   Sukcesy Grove Street Ballers: Odkrywamy Twarze&nbsp;Mistrzów!
                 </h3>
               </div>
-              <div className="article_mainImage relative">
+              <div className="article_mainImage relative h-full">
                 <Image
                   src={article1_image.src}
                   alt="Article title"
@@ -43,15 +43,15 @@ const News = () => {
           </Link>
 
           <div className="flex gap-7 flex-col">
-            <div className="grid grid-cols-[0.4fr_0.6fr] md:grid-cols-[auto_1fr] h-full">
-              <Link href="/" className="articleLink h-full">
-                <div className="article_secondImage relative h-full">
+            <div className="grid grid-cols-1 xs:grid-cols-[0.4fr_0.6fr] md:grid-cols-[auto_1fr] h-full">
+              <Link href="/" className="articleLink w-full xs:w-inherit h-full">
+                <div className="article_secondImage relative w-full xs:w-inherit h-full">
                   <Image
                     src={article2_image.src}
                     alt="Article title"
                     width={225}
                     height={225}
-                    className="articleImage h-full object-cover"
+                    className="articleImage w-full xs:w-inherit h-full object-cover"
                   />
                 </div>
               </Link>
@@ -73,15 +73,15 @@ const News = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-[0.4fr_0.6fr] md:grid-cols-[auto_1fr] h-full">
-              <Link href="/" className="articleLink h-full">
-                <div className="article_secondImage relative h-full">
+            <div className="grid grid-cols-1 xs:grid-cols-[0.4fr_0.6fr] md:grid-cols-[auto_1fr] h-full">
+              <Link href="/" className="articleLink w-full xs:w-inherit h-full">
+                <div className="article_secondImage relative w-full xs:w-inherit h-full">
                   <Image
                     src={article3_image.src}
                     alt="Article title"
                     width={225}
                     height={225}
-                    className="articleImage h-full object-cover"
+                    className="articleImage w-full xs:w-inherit h-full object-cover"
                   />
                 </div>
               </Link>
@@ -90,7 +90,7 @@ const News = () => {
                   <span>
                     <TimeIconSvg />
                   </span>
-                  <span className="text-[12px]">28.12.2023</span>
+                  <span className="text-[12px]">11.10.2023</span>
                 </div>
                 <div className="text-[#31404b]  mt-4 mb-4 font-bold text-sm sm:text-lg ">
                   Jesteśmy mistrzami IV ligi KNBA 🔥🔥🔥

@@ -4,7 +4,10 @@ const nextConfig = {
     serverComponentsExternalPackages: ["puppeteer-core"],
   },
   images: {
-    domains: ["se-img.dcd-production.i.geniussports.com"],
+    domains: [
+      "se-img.dcd-production.i.geniussports.com",
+      "scontent-waw1-1.xx.fbcdn.net",
+    ],
   },
 };
 

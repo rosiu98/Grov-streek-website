@@ -142,7 +142,7 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
 
       return matches.map((match) => {
         const matchTime =
-          match.querySelector(".match-time span")?.textContent || "";
+          match.querySelector(".match-time span")?.textContent?.trim() || "";
         const venue = match.querySelector(".match-venue a")?.textContent || "";
 
         const homeTeamName =
@@ -158,7 +158,7 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
           match.querySelector(".away-team-logo img")?.getAttribute("src") || "";
 
         return {
-          matchTime,
+          matchTime: Number(Date.parse(matchTime)),
           venue,
           homeTeamName,
           homeTeamLogoUrl,

@@ -8,6 +8,7 @@ import Navbar from "./ui/navbar";
 import News from "./ui/news";
 import FacebookPosts from "./ui/facebookPosts";
 import Ambitions from "./ui/ambitions";
+import Matches from "./ui/matches";
 
 export const revalidate = 900;
 
@@ -25,6 +26,7 @@ export default async function Home() {
         <News />
         <FacebookPosts />
         <Ambitions />
+        <Matches />
       </Main>
     </>
   );

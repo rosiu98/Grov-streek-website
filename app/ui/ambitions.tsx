@@ -12,7 +12,7 @@ const Ambitions = () => {
                 <h3 className="text-3xl font-extrabold">Ambicje druzyny</h3>
               </div>
               <div className="mb-12">
-                <p className="text-xl max-w-[680px] w-full">
+                <p className="text-md md:text-xl max-w-[680px] w-full">
                   Ambicje drużyny Grove Street Ballers wykraczają poza granice
                   boiska. Naszym celem jest nie tylko osiągnięcie sukcesów
                   sportowych, ale także inspirowanie innych do dążenia do

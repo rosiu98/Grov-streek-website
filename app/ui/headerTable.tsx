@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { revalidatePath } from "next/cache";
 import Image from "next/image";
 import React from "react";
+import logoPlaceholder from "@/public/logo_placeholder.png";
 
 interface TableData {
   id: number;
@@ -19,7 +20,7 @@ interface TableData {
   gd: number;
   str: number;
   lastMatchesArray: string; // Assuming this is a JSON string representation
-  teamLogo: string;
+  teamLogo: string | null;
   teamCode: string;
   teamUrl: string;
 }
@@ -41,7 +42,7 @@ const HeaderTable = async () => {
       </h3>
       <div className="w-full rounded-md bg-white overflow-auto text-[#31404b] shadow-box">
         <div className="p-6  font-semibold border border-transparent border-b border-b-gray-100 border-l-emerald-700 border-l-4 relative">
-          Diwizja IV
+          Diwizja I
         </div>
         <div className="p-2 md:p-4 pb-1 text-[12px] md:text-base">
           <table className="header_table w-full max-w-full text-center">
@@ -67,7 +68,7 @@ const HeaderTable = async () => {
                   <td className="td_teamName">
                     <div className={"flex items-center justify-start gap-3"}>
                       <Image
-                        src={item.teamLogo}
+                        src={item.teamLogo || logoPlaceholder.src}
                         alt={item.teamName}
                         width={25}
                         height={25}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import FollowUsSvg from "./followUsSvg";
-import HeaderSocialIcons from "./headerSocialIcons";
+import SocialIcons from "./socialIcons";
 
 const HeaderFollowUs = () => {
   return (
@@ -10,7 +10,7 @@ const HeaderFollowUs = () => {
       </div>
       <p className="text-2xl font-extrabold text-white">ŚLEDŹ NAS</p>
       <span className="w-[25px] h-[4px] bg-white"></span>
-      <HeaderSocialIcons />
+      <SocialIcons />
     </div>
   );
 };

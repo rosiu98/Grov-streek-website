@@ -7,8 +7,10 @@ export interface SheduleData {
   venue: string;
   homeTeamName: string;
   homeTeamLogoUrl: string | null;
+  homeTeamScore: string | null;
   awayTeamName: string;
   awayTeamLogoUrl: string | null;
+  awayTeamScore: string | null;
 }
 
 const Matches = async () => {
@@ -21,7 +23,7 @@ const Matches = async () => {
   if (!data) return null;
 
   return (
-    <section className="pt-[100px] lg:pt-[140px] pb-10">
+    <section className="pt-[100px] lg:pt-[140px]">
       <div className="max-w-app">
         <div className="mb-12">
           <p className="text-white text-3xl font-extrabold mb-7">

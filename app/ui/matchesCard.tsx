@@ -55,7 +55,14 @@ const MatchesCard = ({ wyniki }: Props) => {
             />
           </div>
           <div>
-            <span className="text-2xl font-bold">vs</span>
+            {(!wynik.homeTeamScore || !wynik.awayTeamScore) && (
+              <span className="text-2xl font-bold">vs</span>
+            )}
+            {wynik.homeTeamScore && wynik.awayTeamScore && (
+              <span className="text-base md:text-2xl font-bold">
+                {wynik.homeTeamScore}&nbsp;:&nbsp;{wynik.awayTeamScore}
+              </span>
+            )}
           </div>
           <div className="flex items-center flex-col md:flex-row justify-between gap-4 w-full">
             <Image

@@ -36,19 +36,33 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
         const homeTeamLogoUrl =
           match.querySelector(".home-team-logo img")?.getAttribute("src") || "";
 
+        const homeTeamScore =
+          match
+            .querySelector(".home-team .homescore .fake-cell")
+            ?.textContent?.trim()
+            .toString() || "";
+
         const awayTeamName =
           match.querySelector(".away-team .teamnames")?.textContent?.trim() ||
           "";
         const awayTeamLogoUrl =
           match.querySelector(".away-team-logo img")?.getAttribute("src") || "";
 
+        const awayTeamScore =
+          match
+            .querySelector(".away-team .awayscore .fake-cell")
+            ?.textContent?.trim()
+            .toString() || "";
+
         return {
           matchTime: Number(Date.parse(matchTime)),
           venue,
           homeTeamName,
           homeTeamLogoUrl,
+          homeTeamScore,
           awayTeamName,
           awayTeamLogoUrl,
+          awayTeamScore,
         };
       });
     });

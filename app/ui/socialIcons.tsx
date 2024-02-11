@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const HeaderSocialIcons = () => {
+const SocialIcons = () => {
   return (
     <div className="flex items-center justify-center gap-3">
       <Link href="/">
@@ -49,4 +49,4 @@ const HeaderSocialIcons = () => {
   );
 };
 
-export default HeaderSocialIcons;
+export default SocialIcons;

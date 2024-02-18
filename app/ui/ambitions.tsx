@@ -3,7 +3,7 @@ import DruzynaImage from "@/public/ambicje_druzyna.png";
 
 const Ambitions = () => {
   return (
-    <section className="pt-[100px] lg:pt-[140px] pb-10">
+    <section id="ambitions" className="pt-[100px] lg:pt-[140px] pb-10">
       <div className="w-full bg-black text-white py-[100px]">
         <div className="max-w-app">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">

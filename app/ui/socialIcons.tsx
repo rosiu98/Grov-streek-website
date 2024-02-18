@@ -3,7 +3,7 @@ import Link from "next/link";
 const SocialIcons = () => {
   return (
     <div className="flex items-center justify-center gap-3">
-      <Link href="/">
+      <a target="_blank" href="https://www.facebook.com/GSBallerz">
         <svg
           width="24"
           height="24"
@@ -18,8 +18,8 @@ const SocialIcons = () => {
             fill="white"
           />
         </svg>
-      </Link>
-      <Link href="/">
+      </a>
+      <a target="_blank" href="https://www.facebook.com/GSBallerz">
         <svg
           width="24"
           height="24"
@@ -44,7 +44,7 @@ const SocialIcons = () => {
             fill="white"
           />
         </svg>
-      </Link>
+      </a>
     </div>
   );
 };

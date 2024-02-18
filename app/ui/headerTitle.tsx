@@ -20,7 +20,7 @@ const HeaderTitle = () => {
         społeczności i śledź razem z nami naszą koszykarską przygodę!
       </p>
       <div>
-        <Button className="text-2xl px-7 py-5" href="/">
+        <Button className="text-2xl px-7 py-5" href="#ambitions">
           WIECEJ O NAS
         </Button>
       </div>

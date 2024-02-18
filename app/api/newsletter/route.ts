@@ -32,7 +32,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     const { error: resendError } = await resend.emails.send({
       from: "Grove Street Ballerz <GroveStreetBallerz@email-app.website>",
       to: [email],
-      subject: "Hello world",
+      subject: "Witaj w zespole Grove Street Ballerz! Dziękujemy.",
       react: WelcomeEmail(),
     });
 

@@ -72,12 +72,24 @@ const Navbar = () => {
             />
           </div>
           <div className="hidden lg:flex flex-row items-center gap-5 font-medium">
-            <Link href="/">O NAS</Link>
-            <Link href="/">AKTUALNOŚCI</Link>
-            <Link href="/">MECZE</Link>
-            <Link href="/">DRUZYNA</Link>
-            <Link href="/">WYNIKI</Link>
-            <Button href="/">KONTAKT</Button>
+            <a className="navbar-link" href="#ambitions">
+              O NAS
+            </a>
+            <a className="navbar-link" href="#news">
+              AKTUALNOŚCI
+            </a>
+            <a className="navbar-link" href="#mecze">
+              MECZE
+            </a>
+            <Link className="navbar-link" href="/">
+              DRUZYNA
+            </Link>
+            <Link className="navbar-link" href="#mecze">
+              WYNIKI
+            </Link>
+            <Button target="_blank" href="https://www.facebook.com/GSBallerz">
+              KONTAKT
+            </Button>
           </div>
           <div className="lg:hidden block">
             <DropdownMenu>
@@ -90,21 +102,19 @@ const Navbar = () => {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
-                  <Link href="/">O Nas</Link>
+                  <a href="#ambitions">O Nas</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/">Aktualności</Link>
+                  <a href="#news">Aktualności</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/">Mecze</Link>
+                  <a href="#mecze">Mecze</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link href="/">Druzyna</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/">
-                    <Link href="/">Wyniki</Link>
-                  </Link>
+                  <a href="#mecze">Wyniki</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link href="/">Kontakt</Link>

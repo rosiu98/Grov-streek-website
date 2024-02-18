@@ -33,21 +33,21 @@ const Footer = () => {
             <div className="border-b-2 border-r-gray-100 lg:border-b-0 lg:border-r-2 lg:border-r-gray-100 w-full lg:w-2 h-2 lg:h-[328px]"></div>
             <div className="pt-8 mx-auto">
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-[10%] lg:gap-20 items-center font-bold transition-all min-w-0  lg:min-w-[310px]">
-                <Link className="hover:underline transition-all" href="/">
+                <a className="hover:underline transition-all" href="#ambitions">
                   O NAS
-                </Link>
-                <Link className="hover:underline transition-all" href="/">
+                </a>
+                <a className="hover:underline transition-all" href="#news">
                   AKTUALNOŚCI
-                </Link>
-                <Link className="hover:underline transition-all" href="/">
+                </a>
+                <a className="hover:underline transition-all" href="#mecze">
                   MECZE
-                </Link>
-                <Link className="hover:underline transition-all" href="/">
+                </a>
+                <a className="hover:underline transition-all" href="/">
                   DRUZYNA
-                </Link>
-                <Link className="hover:underline transition-all" href="/">
+                </a>
+                <a className="hover:underline transition-all" href="#mecze">
                   WYNIKI
-                </Link>
+                </a>
               </div>
             </div>
             <div className="border-b-2 border-r-gray-100 lg:border-b-0 lg:border-r-2 lg:border-r-gray-100 w-full lg:w-2 h-2 lg:h-[328px]"></div>

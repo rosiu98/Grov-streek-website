@@ -9,7 +9,7 @@ interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 export function Button({ children, className, href, ...rest }: ButtonProps) {
   return (
-    <Link
+    <a
       {...rest}
       href={href}
       className={clsx(
@@ -18,6 +18,6 @@ export function Button({ children, className, href, ...rest }: ButtonProps) {
       )}
     >
       {children}
-    </Link>
+    </a>
   );
 }

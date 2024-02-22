@@ -11,6 +11,7 @@ import Ambitions from "./ui/ambitions";
 import Matches from "./ui/matches";
 import Footer from "./ui/footer";
 import Stopka from "./ui/stopka";
+import RecentMatches from "./ui/recentMatches";
 
 export const revalidate = 900;
 
@@ -25,6 +26,7 @@ export default async function Home() {
         </HeaderColumns>
       </Header>
       <Main>
+        <RecentMatches />
         <News />
         <FacebookPosts />
         <Ambitions />

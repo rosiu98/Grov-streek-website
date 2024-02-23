@@ -11,7 +11,10 @@ type Props = {
 
 const CurrentMatch = ({ currentMatch }: Props) => {
   return (
-    <div className="bg-white rounded-md w-full lg:w-auto py-6 px-5 lg:px-10 text-[#31404b] text-center flex-1">
+    <div
+      className="bg-white rounded-md border-[4px]
+    border-[#DC8A02] w-full lg:w-auto py-6 px-5 lg:px-10 text-[#31404b] text-center flex-1"
+    >
       <p className="text-xl lg:text-2xl font-bold mb-16">Najbliższy Mecz</p>
       <div className="flex justify-between items-center gap-6">
         <div className="flex items-center flex-col justify-between gap-4 w-full">

@@ -11,7 +11,10 @@ type Props = {
 
 const PreviouseMatch = ({ previouseMatch }: Props) => {
   return (
-    <div className="bg-white rounded-md py-6 w-full lg:w-auto px-5 lg:px-10 text-[#31404b] text-center">
+    <div
+      className="bg-white rounded-md border-[4px]
+    border-[#DC8A02] py-6 w-full lg:w-auto px-5 lg:px-10 text-[#31404b] text-center"
+    >
       <p className="text-xl font-bold mb-10">Ostatni Mecz</p>
       <div className="flex justify-between items-center gap-6">
         <div className="flex items-center flex-col justify-between gap-4 w-full">

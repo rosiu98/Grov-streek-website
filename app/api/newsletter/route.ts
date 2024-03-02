@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { SheduleData } from "@/app/ui/matches";
 import { supabase } from "@/libs/supabase";
 import { unstable_noStore } from "next/cache";

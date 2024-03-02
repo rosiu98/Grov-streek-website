@@ -1,5 +1,6 @@
+/* eslint-disable */
+
 import { SheduleData } from "@/app/ui/matches";
-import WelcomeEmail from "@/app/ui/welcomeEmail";
 import { supabase } from "@/libs/supabase";
 import { unstable_noStore } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";

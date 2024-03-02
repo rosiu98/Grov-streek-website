@@ -1077,11 +1077,10 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
                                   currentMatch.matchTime
                                 ).getFullYear()}</b>
                                             <br />
-                                            Godzina: <b>${(
-                                              new Date(
-                                                currentMatch.matchTime
-                                              ).getHours() - 1
+                                            Godzina: <b>${new Date(
+                                              currentMatch.matchTime
                                             )
+                                              .getHours()
                                               .toString()
                                               .padStart(2, "0")}:${new Date(
                                   currentMatch.matchTime

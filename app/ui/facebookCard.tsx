@@ -19,7 +19,7 @@ const FacebookCard = ({ posts }: Props) => {
             target="_blank"
             className="relative w-full h-[170px] fbPost"
           >
-            <img
+            <Image
               src={post.postMediaContent}
               alt={post.content}
               width={300}

@@ -1174,7 +1174,10 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
                                             e-mail od zespołu koszykarskiego "Grove
                                             Street Ballers", kliknij&nbsp;<a
                                               target="_blank"
-                                              href="https://grov-street-website.vercel.app/"
+                                              href="https://grov-street-website.vercel.app/api/unsubscribe/${Buffer.from(
+                                                String(currentMatch?.id) ??
+                                                  "error"
+                                              ).toString("base64")}"
                                               style="
                                                 text-decoration: underline;
                                                 color: #e6e6e6;

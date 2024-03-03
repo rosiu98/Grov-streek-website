@@ -30,6 +30,7 @@ export const GET = async (req: NextRequest, { params }: { params: Params }) => {
     return new Response(
       JSON.stringify({
         id,
+        message: "You have been unsubscribed successfully!",
       }),
       { status: 200 }
     );

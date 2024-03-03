@@ -6,6 +6,12 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+interface NewsletterData {
+  id: number;
+  email: string;
+  created_at: string;
+}
+
 export const dynamic = "force-dynamic";
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
@@ -44,11 +50,15 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       (match) => new Date(match.matchTime) > today
     );
 
-    const { error } = await supabase.from("newsletter").insert({ email });
+    const { data: newsletterData, error } = await supabase
+      .from("newsletter")
+      .insert({ email })
+      .select()
+      .single<NewsletterData>();
 
-    if (error) {
+    if (error || !data) {
       console.error("There was error with trying to submit email!");
-      return new Response(JSON.stringify({ message: error.message }), {
+      return new Response(JSON.stringify({ message: error?.message }), {
         status: 400,
       });
     }
@@ -1175,7 +1185,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
                                             Street Ballers", kliknij&nbsp;<a
                                               target="_blank"
                                               href="https://grov-street-website.vercel.app/api/unsubscribe/${Buffer.from(
-                                                String(currentMatch?.id) ??
+                                                String(newsletterData?.id) ??
                                                   "error"
                                               ).toString("base64")}"
                                               style="

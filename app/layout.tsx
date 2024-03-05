@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { redHatFont } from "./ui/fonts";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Grove Street Ballerz",
@@ -38,7 +39,10 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#000000" />
       </head>
-      <body className={redHatFont.className}>{children}</body>
+      <body className={redHatFont.className}>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }

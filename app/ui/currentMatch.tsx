@@ -1,9 +1,12 @@
-import React from "react";
 import { SheduleData } from "./matches";
 import Image from "next/image";
 import logoPlaceholder from "@/public/logo_placeholder.png";
 import { cn } from "@/lib/utils";
 import MapPin from "./mapPin";
+import dynamic from "next/dynamic";
+const CountdownTimer = dynamic(() => import("./CountdownTimer"), {
+  ssr: false,
+});
 
 type Props = {
   currentMatch: SheduleData;
@@ -15,7 +18,11 @@ const CurrentMatch = ({ currentMatch }: Props) => {
       className="bg-white rounded-md border-[4px]
     border-[#DC8A02] w-full lg:w-auto py-6 px-5 lg:px-10 text-[#31404b] text-center flex-1"
     >
-      <p className="text-xl lg:text-2xl font-bold mb-16">Najbliższy Mecz</p>
+      <p className="text-xl lg:text-2xl font-bold">Najbliższy Mecz</p>
+
+      <div className="mb-12 mt-10">
+        <CountdownTimer targetDate={currentMatch.matchTime} />
+      </div>
       <div className="flex justify-between items-center gap-6">
         <div className="flex items-center flex-col justify-between gap-4 w-full">
           <Image

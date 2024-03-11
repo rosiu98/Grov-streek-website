@@ -953,13 +953,6 @@ const todayOrTomorrowMatch = (
     currentMatch.matchTime
   )}, godzina ${formatTime(currentMatch.matchTime)}</b>
                                           </p>
-                                          <p style="margin: 0; margin-bottom: 22px">
-                                          ${
-                                            isMatchToday ? "Dzisiaj" : "Jutro"
-                                          } mamy dla Ciebie wyjątkowe wydarzenie! Nasz zespół, Grove Street Ballers, stanie ${
-    isMatchToday ? "dzisiaj" : "jutro"
-  } na boisku w ważnym meczu, a Ty możesz być częścią tej niezwykłej atmosfery!
-                                        </p>
                                         <p style="margin: 0; margin-bottom: 22px">
                                             Przyjdź i wspieraj nas swoim dopingiem! Obiecujemy niezapomniane emocje, wspaniałą atmosferę i koszykarską rozrywkę na najwyższym poziomie.
                                         </p>

@@ -18,7 +18,8 @@ const RecentMatches = async () => {
   const today = new Date();
 
   // Find next match, last match, and other matches
-  const currentMatch = data.find((match) => new Date(match.matchTime) > today);
+  const currentMatch =
+    data.find((match) => new Date(match.matchTime) > today) ?? data.at(-1);
   const previouseMatch = data.reduce(
     (prev, curr) =>
       new Date(curr.matchTime) < today
@@ -34,6 +35,9 @@ const RecentMatches = async () => {
     (match) => new Date(match.matchTime) > new Date(currentMatch!.matchTime)
   );
 
+  const isLastMatch =
+    JSON.stringify(previouseMatch) === JSON.stringify(currentMatch);
+
   return (
     <section id="recent" className="pt-[100px] lg:pt-[190px]">
       <div className="max-w-app">
@@ -42,8 +46,15 @@ const RecentMatches = async () => {
           <span className="w-full max-w-[300px] h-[5px] bg-[#DC8A02] block"></span>
         </div>
         <div className="flex flex-col lg:flex-row items-start gap-4 sm:border-solid sm:border-[5px] border-white rounded-md sm:p-10">
-          {previouseMatch && <PreviouseMatch previouseMatch={previouseMatch} />}
-          {currentMatch && <CurrentMatch currentMatch={currentMatch} />}
+          {previouseMatch && !isLastMatch && (
+            <PreviouseMatch previouseMatch={previouseMatch} />
+          )}
+          {currentMatch && (
+            <CurrentMatch
+              isLastMatch={isLastMatch}
+              currentMatch={currentMatch}
+            />
+          )}
           {nextMatch && <NextMatch nextMatch={nextMatch} />}
         </div>
       </div>

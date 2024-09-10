@@ -10,21 +10,24 @@ const CountdownTimer = dynamic(() => import("./CountdownTimer"), {
 
 type Props = {
   currentMatch: SheduleData;
+  isLastMatch: boolean;
 };
 
-const CurrentMatch = ({ currentMatch }: Props) => {
+const CurrentMatch = ({ currentMatch, isLastMatch }: Props) => {
   return (
     <div
       className="bg-white rounded-md border-[4px]
     border-[#DC8A02] w-full lg:w-auto py-6 px-5 lg:px-10 text-[#31404b] text-center flex-1"
     >
-      <p className="text-xl lg:text-2xl font-bold">Najbliższy Mecz</p>
+      <p className="text-xl lg:text-2xl font-bold">
+        {isLastMatch ? "Ostatni" : "Najbliższy"} Mecz
+      </p>
 
       <div className="mb-12 mt-10">
         <CountdownTimer targetDate={currentMatch.matchTime} />
       </div>
       <div className="flex justify-between items-center gap-6">
-        <div className="flex items-center flex-col justify-between gap-4 w-full">
+        <div className="flex items-center flex-col justify-between gap-4 w-full relative">
           <Image
             src={currentMatch.homeTeamLogoUrl || logoPlaceholder.src}
             alt={currentMatch.homeTeamName}
@@ -41,11 +44,14 @@ const CurrentMatch = ({ currentMatch }: Props) => {
           >
             {currentMatch.homeTeamName}
           </span>
+          <span className="absolute bottom-[-2.5rem] text-base md:text-2xl font-bold">
+            {currentMatch.homeTeamScore ?? ""}
+          </span>
         </div>
         <div>
           <span className="text-base md:text-xl font-bold">vs</span>
         </div>
-        <div className="flex items-center flex-col justify-between gap-4 w-full">
+        <div className="flex items-center flex-col justify-between gap-4 w-full relative">
           <Image
             src={currentMatch.awayTeamLogoUrl || logoPlaceholder.src}
             alt={currentMatch.awayTeamName}
@@ -61,6 +67,9 @@ const CurrentMatch = ({ currentMatch }: Props) => {
             )}
           >
             {currentMatch.awayTeamName}
+          </span>
+          <span className="absolute bottom-[-2.5rem] text-base md:text-2xl font-bold">
+            {currentMatch.awayTeamScore ?? ""}
           </span>
         </div>
       </div>

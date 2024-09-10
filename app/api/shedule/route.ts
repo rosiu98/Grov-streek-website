@@ -3,6 +3,7 @@ import { unstable_noStore } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import puppeteer from "puppeteer-core";
 
+export const maxDuration = 55; 
 export const dynamic = "force-dynamic";
 
 export const GET = async (req: NextRequest, res: NextResponse) => {

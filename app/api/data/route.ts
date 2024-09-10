@@ -21,11 +21,12 @@ export interface ScrapData {
   L5: string;
 }
 
-// export const dynamic = "force-dynamic";
-export const runtime = 'edge';
+export const maxDuration = 40; 
+export const dynamic = "force-dynamic";
+
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
-  // unstable_noStore();
+  unstable_noStore();
   try {
     const url =
       "https://hosted.dcd.shared.geniussports.com/LMBA/en/competition/37942/standings?phaseName=Division%20I&";

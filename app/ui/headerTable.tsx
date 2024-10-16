@@ -1,11 +1,14 @@
+"use client";
+
 import { supabase } from "@/libs/supabase";
 import clsx from "clsx";
 import { revalidatePath } from "next/cache";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import logoPlaceholder from "@/public/logo_placeholder.png";
+import SeasonSelect from "./seasonSelect";
 
-interface TableData {
+export interface TableData {
   id: number;
   created_at: string;
   position: number;
@@ -23,26 +26,30 @@ interface TableData {
   teamLogo: string | null;
   teamCode: string;
   teamUrl: string;
+  season: string;
 }
 
-const HeaderTable = async () => {
-  const { data, error } = await supabase
-    .from<any, TableData>("lista_wynikow")
-    .select("*")
-    .order("position", { ascending: true })
-    .returns<TableData[]>();
-  //   revalidatePath("/");
+const HeaderTable = ({ data }: { data: TableData[] }) => {
+  const [currentSeason, setCurrentSeason] = useState("9");
 
-  if (error || !data) return null;
+  if (!data) return null;
+
+  const filteredData = data.filter((item) => item.season === currentSeason);
 
   return (
     <div className="self-start w-full max-w-[440px]">
       <h3 className="text-2xl text-white font-bold uppercase mb-3">
         Statystyki:
       </h3>
-      <div className="w-full rounded-md bg-white overflow-auto text-[#31404b] shadow-box">
-        <div className="p-6  font-semibold border border-transparent border-b border-b-gray-100 border-l-emerald-700 border-l-4 relative">
-          Diwizja I
+      <div className="w-full rounded-md bg-white overflow-auto text-[#31404b] shadow-box max-h-[515px]">
+        <div className="flex justify-between items-center p-6 font-semibold border border-transparent border-b border-b-gray-100 border-l-emerald-700 border-l-4 relative">
+          <div>Sezon {currentSeason}</div>
+          <div>
+            <SeasonSelect
+              currentSeason={currentSeason}
+              setCurrentSeason={setCurrentSeason}
+            />
+          </div>
         </div>
         <div className="p-2 md:p-4 pb-1 text-[12px] md:text-base">
           <table className="header_table w-full max-w-full text-center">
@@ -57,7 +64,7 @@ const HeaderTable = async () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((item) => (
+              {filteredData.map((item) => (
                 <tr
                   className={`${
                     item.teamName === "Grove Street Ballerz" && "font-bold"

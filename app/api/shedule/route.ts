@@ -3,14 +3,14 @@ import { unstable_noStore } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import puppeteer from "puppeteer-core";
 
-export const maxDuration = 55; 
+export const maxDuration = 55;
 export const dynamic = "force-dynamic";
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
   unstable_noStore();
   try {
     const sheduleUrl =
-      "https://hosted.dcd.shared.geniussports.com/LMBA/en/competition/37942/team/164993/schedule";
+      "https://hosted.dcd.shared.geniussports.com/LMBA/en/competition/39486/team/164993/schedule";
 
     const browser = await puppeteer.connect({
       browserWSEndpoint: `wss://chrome.browserless.io?token=${process.env.BLESS_TOKEN}`,
@@ -64,12 +64,13 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
           awayTeamName,
           awayTeamLogoUrl,
           awayTeamScore,
+          season: "9",
         };
       });
     });
 
     if (sheduleData) {
-      await supabase.from("lista_meczy").delete().gte("id", 0);
+      await supabase.from("lista_meczy").delete().neq("season", "8");
     }
 
     const { data: supabaseData } = await supabase

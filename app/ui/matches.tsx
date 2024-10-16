@@ -11,6 +11,7 @@ export interface SheduleData {
   awayTeamName: string;
   awayTeamLogoUrl: string | null;
   awayTeamScore: string | null;
+  season: string;
 }
 
 const Matches = async () => {

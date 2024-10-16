@@ -1,17 +1,31 @@
+"use client";
+
 import Image from "next/image";
 import { SheduleData } from "./matches";
 import logoPlaceholder from "@/public/logo_placeholder.png";
 import { cn } from "@/lib/utils";
 import MapPin from "./mapPin";
+import { useState } from "react";
+import SeasonSelect from "./seasonSelect";
 
 type Props = {
   wyniki: SheduleData[];
 };
 
 const MatchesCard = ({ wyniki }: Props) => {
+  const [currentSeason, setCurrentSeason] = useState("9");
+
+  const currentWyniki = wyniki.filter((item) => item.season === currentSeason);
+
   return (
-    <div className="flex w-full items-center justify-center gap-8 flex-col max-w-[1200px] mx-auto">
-      {wyniki.map((wynik) => (
+    <div className="flex w-full items-center justify-center gap-8 flex-col max-w-[1200px] mx-auto relative">
+      <div className="absolute top-[-40px] md:top-[-100px] right-0">
+        <SeasonSelect
+          currentSeason={currentSeason}
+          setCurrentSeason={setCurrentSeason}
+        />
+      </div>
+      {currentWyniki.map((wynik) => (
         <div
           key={wynik.id}
           className="grid grid-cols-[0.4fr_0.2fr_0.4fr] place-items-center bg-white pt-14 pb-10 md:pb-14 px-5 xs:px-[5%] md:px-[10%] border-[4px] rounded-xl border-[#DC8A02] text-black text-center relative w-full"

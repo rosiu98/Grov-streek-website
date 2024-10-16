@@ -21,18 +21,17 @@ export interface ScrapData {
   L5: string;
 }
 
-export const maxDuration = 40; 
+export const maxDuration = 40;
 export const dynamic = "force-dynamic";
-
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
   unstable_noStore();
   try {
     const url =
-      "https://hosted.dcd.shared.geniussports.com/LMBA/en/competition/37942/standings?phaseName=Division%20I&";
+      "https://hosted.dcd.shared.geniussports.com/LMBA/en/competition/39486/standings";
 
     const sheduleUrl =
-      "https://hosted.dcd.shared.geniussports.com/LMBA/en/competition/37942/team/164993/schedule";
+      "https://hosted.dcd.shared.geniussports.com/LMBA/en/competition/39486/team/164993/schedule";
 
     const browser = await puppeteer.connect({
       browserWSEndpoint: `wss://chrome.browserless.io?token=${process.env.BLESS_TOKEN}`,
@@ -106,7 +105,7 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
     });
 
     if (data) {
-      await supabase.from("lista_wynikow").delete().gte("id", 0);
+      await supabase.from("lista_wynikow").delete().neq("season", "8");
     }
 
     const parseData = data.map((item) => {
@@ -126,6 +125,7 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
         str: Number(item.Str),
         lastMatchesArray: item.L5,
         teamLogo: item.imageLogo,
+        season: "9",
       };
     });
 
@@ -153,25 +153,40 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
         const homeTeamLogoUrl =
           match.querySelector(".home-team-logo img")?.getAttribute("src") || "";
 
+        const homeTeamScore =
+          match
+            .querySelector(".home-team .homescore .fake-cell")
+            ?.textContent?.trim()
+            .toString() || "";
+
         const awayTeamName =
           match.querySelector(".away-team .teamnames")?.textContent?.trim() ||
           "";
         const awayTeamLogoUrl =
           match.querySelector(".away-team-logo img")?.getAttribute("src") || "";
 
+        const awayTeamScore =
+          match
+            .querySelector(".away-team .awayscore .fake-cell")
+            ?.textContent?.trim()
+            .toString() || "";
+
         return {
           matchTime: Number(Date.parse(matchTime)),
           venue,
           homeTeamName,
           homeTeamLogoUrl,
+          homeTeamScore,
           awayTeamName,
           awayTeamLogoUrl,
+          awayTeamScore,
+          season: "9",
         };
       });
     });
 
     if (sheduleData) {
-      await supabase.from("lista_meczy").delete().gte("id", 0);
+      await supabase.from("lista_meczy").delete().neq("season", "8");
     }
 
     await supabase.from("lista_meczy").insert(sheduleData).select("*");
